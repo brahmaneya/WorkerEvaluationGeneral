@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Mechanical Turk Hit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<style type="text/css" media="screen">
+		body {font:13px/1.22 helvetica,arial,clean,sans-serif;*font-size:small;*font:x-small;padding:10px;}
+		table {font-size:inherit;font:100%;}
+		
+		
+        ul {margin-top :0}        
+      
+		
+		table {border-top:2px solid #555;padding:20px 0 0 0;border-spacing:0;width:90%;}
+		table td {padding:3px;vertical-align:top;}
+		span.loading {
+		  display:block;font-size:135%;font-weight:bold;color:#c33;
+    }
+    div.wrapper { padding:10px;}
+		label {display:block;margin-top:5px;}
+		dt {font-weight:bold;display:inline;}
+		dd {display:inline;margin-left:5px;}
+		.warning {color:red;font-weight:bold;font-size:200%}
+		.wrapper {margin-bottom:15px;}
+		.custom {color:#333;}
+		p.dolores {
+		  margin-top:-30px;
+		  color:#333;
+		}
+		p.dolores a.logo {
+		  float:right;
+		}
+		p.dolores a.logo img {
+		  border:none;
+		}
+	</style>
+	
+	  <script src="http://a1.doloreslabs.com/jsawesome-0.1.4.js?minor=1" type="text/javascript"></script>
+	
+</head>
+<body>
+  <p class="warning">Page loading...  If this message stays here for more than 30 seconds, you should not attempt to complete this hit.  Try refreshing or enabling Javascript</p>
+  <p style="font-weight:bold">      <p>
+      Please choose the most appropriate sense of the word <b><font color="red">president</font></b> in the following contexts.
+      <hr>
+      <b>Examples:</b><p>
+      <b>Text:</b> Ms. House is vice <b><font color="red"> president </font></b> of Dow Jones International Group . <br>
+      <b>Sense</b>:  '1.  president, chair, chairperson, chairman, chairwoman, prexy -- (the executive officer of a firm, corporation, or university). <p>
+      
+      <b>Text:</b> Hungary 's Parliament voted to hold a national referendum on an election to fill the new post of <b><font color="red"> president </font></b> .<br>
+      <b>Sense</b>:  '2.  head of a country (other than the U.S.) -- (the chief executive of a republic)'. <p>
+      
+      <b>Text:</b> The compromise proposal , ending a long impasse between Democrats and the <b><font color="red"> president </font></b> , would boost the minimum wage to $ 4.25 an hour by April 1991 from $ 3.35 now . <br>
+      <b>Sense</b>:    '3.  head of the U.S., President of the United States, United States President, President, Chief Executive -- (the person who holds the office of head of state of the United States government)'.
+      </p>
+      
+      <hr>
+</p><br/>
+	<form id="mturk_form" method="post" action="http://www.mturk.com/mturk/externalSubmit">
+		
+      <div class="wrapper odd">
+              <hr>
+      <b>Article:</b> <p> Polls show wide , generalized support for some vague concept of service , but the bill now under discussion lacks any passionate public backing . Nonetheless , Senate Democrats are organizing a roll of supporting `` associations , '' `` societies '' and `` councils , '' some of which may hope to receive the paid `` volunteers . '' So far , the <b><font color="red"> president </font></b> seems ill-disposed to substitute any of the omnibus for his own free-standing proposal to endow a `` Points of Light '' foundation with $ 25 million to inform citizens of all ages and exhort them to genuine volunteerism . However , even this admirable plan could become objectionable if the White House gives in to congressional Democratic pressure to add to the scope of the president 's initiative or to involve the independent foundation in `` brokering '' federal funds for volunteer projects . There 's no need for such concessions .
+      
+
+    	  
+      <p></p>
+      <div id="u157458"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper even">
+              <hr>
+      <b>Article:</b> <p> Drug Emporium Inc. said Gary Wilber , 39 years old , who had been president and chief operating officer for the past year , was named chief executive officer of this drugstore chain . He succeeds his father , Philip T. Wilber , who founded the company and remains chairman . Robert E. Lyons III , 39 , who headed the company 's Philadelphia region , was appointed <b><font color="red"> president </font></b> and chief operating officer , succeeding Gary Wilber .
+      
+
+    	  
+      <p></p>
+      <div id="u157457"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper odd">
+        
+    	  
+      <p>Do you have any comments? <i>(optional)</i></p>
+      <textarea rows="3" cols="100" name="h-comments" id="comments"></textarea>
+      
+    	</div>
+    	<br style="clear:both"/>
+    
+	
+	<input type="submit" id="submit" value="Submit HIT"/>
+	</form>
+	<script type="text/javascript">
+	  //Remove the JS warning
+	  $E('p.warning').destroy()
+		function gup( name ) {
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+		    return "";
+		  else
+		    return results[1];
+		}
+		var preview = gup("assignmentId") == "ASSIGNMENT_ID_NOT_AVAILABLE"
+		if (preview) {
+			new Element('span', {
+				'class': 'warning', 
+				html: 'Preview mode.  Remember to accept the HIT before doing it!'
+			}).inject(document.body, 'top');  
+			$('submit').disabled = true
+		} else {
+		  new Element('input', {
+		  	type: 'hidden',
+		  	name: 'assignmentId', 
+		  	value: gup('assignmentId')
+		  }).inject('mturk_form')
+    }
+		
+		if (document.referrer && ( document.referrer.indexOf('workersandbox') != -1) ) {
+		  $('mturk_form').action = "http://workersandbox.mturk.com/mturk/externalSubmit";
+		}
+		
+              window.addEvent('load', function(){
+          $$('input.none').each(function(i){
+            i.addEvent('click', function(){
+              var id = this.getParent('div').getParent().get('id')
+              var awesome = eval(id)
+              if(this.checked)
+                 awesome.stopValidation()
+              else
+                 awesome.addValidation()
+            })
+          })
+        })
+
+    
+		
+      var j157458 = [["*sense",["1.  president, chair, chairperson, chairman, chairwoman, prexy -- (the executive officer of a firm, corporation, or university)","2.  head of a country (other than the U.S.) -- (the chief executive of a republic)","3.  head of the U.S., President of the United States, United States President, President, Chief Executive -- (the person who holds the office of head of state of the United States government)"]],["comment",""]].concat([])
+      var u157458 = new JSAwesome('u157458', j157458, {"sense":{"required":true,"label":"Which of the senses of president is most appropriate in this sentence?"}})
+      u157458.to_html()
+      u157458.addValidation()
+      
+      
+
+      var j157457 = [["*sense",["1.  president, chair, chairperson, chairman, chairwoman, prexy -- (the executive officer of a firm, corporation, or university)","2.  head of a country (other than the U.S.) -- (the chief executive of a republic)","3.  head of the U.S., President of the United States, United States President, President, Chief Executive -- (the person who holds the office of head of state of the United States government)"]],["comment",""]].concat([])
+      var u157457 = new JSAwesome('u157457', j157457, {"sense":{"required":true,"label":"Which of the senses of president is most appropriate in this sentence?"}})
+      u157457.to_html()
+      u157457.addValidation()
+      
+      
+
+		
+		$$('p.dolores a').each(function(a){
+		  a.href = a.href+"?tid="+gup("workerId")
+		})
+		//Submit the comments if there are any
+		var submitted = false
+		$('mturk_form').addEvent('submit', function(){
+		  if(!submitted && $('comments') && $('comments').get('value').test(/\w+/)) {
+		    submitted = true
+		    new Element('img', {src:"http://discuss.doloreslabs.com/comments/remote?"+$H({hid:1141, tid:gup('workerId'),body:$('comments').get('value')}).toQueryString()})
+		  }
+		})
+		
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-3841988-3");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+  </script>
+</body>
+</html>
+ <!-- This POST method is posting to the sandbox worker site-->
+<!-- <form method="POST" action="http://workersandbox.mturk.com/mturk/externalSubmit">-->
+<!-- This POST method is posting to the production worker site-->
+<!--<form method="POST" action="http://www.mturk.com/mturk/externalSubmit">-->
+<!--<input type="hidden" id="assignmentId" name="assignmentId" value=""> -->

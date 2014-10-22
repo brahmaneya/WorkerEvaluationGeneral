@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Mechanical Turk Hit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<style type="text/css" media="screen">
+		body {font:13px/1.22 helvetica,arial,clean,sans-serif;*font-size:small;*font:x-small;padding:10px;}
+		table {font-size:inherit;font:100%;}
+		
+		
+        .problem { font-size: 16pt }
+      
+		
+		table {border-top:2px solid #555;padding:20px 0 0 0;border-spacing:0;width:90%;}
+		table td {padding:3px;vertical-align:top;}
+		span.loading {
+		  display:block;font-size:135%;font-weight:bold;color:#c33;
+    }
+    div.wrapper { padding:10px;}
+		label {display:block;margin-top:5px;}
+		dt {font-weight:bold;display:inline;}
+		dd {display:inline;margin-left:5px;}
+		.warning {color:red;font-weight:bold;font-size:200%}
+		.wrapper {margin-bottom:15px;}
+		.custom {color:#333;}
+		p.dolores {
+		  margin-top:-30px;
+		  color:#333;
+		}
+		p.dolores a.logo {
+		  float:right;
+		}
+		p.dolores a.logo img {
+		  border:none;
+		}
+	</style>
+	
+	  <script src="http://a1.doloreslabs.com/jsawesome-0.1.4.js?minor=1" type="text/javascript"></script>
+	
+</head>
+<body>
+  <p class="warning">Page loading...  If this message stays here for more than 30 seconds, you should not attempt to complete this hit.  Try refreshing or enabling Javascript</p>
+  <p style="font-weight:bold">
+      <h1>Word pair similarity</h1>
+
+      <p>Below is a list of pairs of words. For each pair, please assign
+      a numerical similarity score between 0 and 10 (0 = words are totally
+      unrelated, 10 = words are VERY closely related). By definition,
+      the similarity of the word to itself should be 10. You may assign
+      fractional scores (for example, 7.5).</p>
+            
+      </p><br/>
+	<form id="mturk_form" method="post" action="http://www.mturk.com/mturk/externalSubmit">
+		
+      <div class="wrapper odd">
+        
+        <div class="problem">
+          boy &nbsp; lad
+        </div>
+      
+    	  
+      <p></p>
+      <div id="u37000"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper even">
+        
+        <div class="problem">
+          coast &nbsp; shore
+        </div>
+      
+    	  
+      <p></p>
+      <div id="u37001"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper odd">
+        
+    	  
+      <p>Do you have any comments? <i>(optional)</i></p>
+      <textarea rows="3" cols="100" name="h-comments" id="comments"></textarea>
+      
+    	</div>
+    	<br style="clear:both"/>
+    
+	<input type="submit" id="submit" value="Submit HIT"/>
+	</form>
+	<script type="text/javascript">
+	  //Remove the JS warning
+	  $E('p.warning').destroy()
+		function gup( name ) {
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+		    return "";
+		  else
+		    return results[1];
+		}
+		var preview = gup("assignmentId") == "ASSIGNMENT_ID_NOT_AVAILABLE"
+		if (preview) {
+			new Element('span', {
+				'class': 'warning', 
+				html: 'Preview mode.  Remember to accept the HIT before doing it!'
+			}).inject(document.body, 'top');  
+			$('submit').disabled = true
+		} else {
+		  new Element('input', {
+		  	type: 'hidden',
+		  	name: 'assignmentId', 
+		  	value: gup('assignmentId')
+		  }).inject('mturk_form')
+    }
+		
+		if (document.referrer && ( document.referrer.indexOf('workersandbox') != -1) ) {
+		  $('mturk_form').action = "http://workersandbox.mturk.com/mturk/externalSubmit";
+		}
+		
+      
+    
+		
+      var j37000 = [["sim",""]].concat([])
+      var u37000 = new JSAwesome('u37000', j37000, {"sim":{"validation":["^(\\d|10)(\\.\\d+|)$",["Please use numbers from 0 through 10.  Decimals are OK."]],"label":"Similarity (0-10)","required":true}})
+      u37000.to_html()
+      u37000.addValidation()
+      
+      
+
+      var j37001 = [["sim",""]].concat([])
+      var u37001 = new JSAwesome('u37001', j37001, {"sim":{"validation":["^(\\d|10)(\\.\\d+|)$",["Please use numbers from 0 through 10.  Decimals are OK."]],"label":"Similarity (0-10)","required":true}})
+      u37001.to_html()
+      u37001.addValidation()
+      
+      
+
+		
+		$$('p.dolores a').each(function(a){
+		  a.href = a.href+"?tid="+gup("workerId")
+		})
+		//Submit the comments if there are any
+		var submitted = false
+		$('mturk_form').addEvent('submit', function(){
+		  if(!submitted && $('comments') && $('comments').get('value').test(/\w+/)) {
+		    submitted = true
+		    new Element('img', {src:"http://discuss.doloreslabs.com/comments/remote?"+$H({hid:27, tid:gup('workerId'),body:$('comments').get('value')}).toQueryString()})
+		  }
+		})
+		
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-3841988-3");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+  </script>
+</body>
+</html>
+ <!-- This POST method is posting to the sandbox worker site-->
+<!-- <form method="POST" action="http://workersandbox.mturk.com/mturk/externalSubmit">-->
+<!-- This POST method is posting to the production worker site-->
+<!--<form method="POST" action="http://www.mturk.com/mturk/externalSubmit">-->
+<!--<input type="hidden" id="assignmentId" name="assignmentId" value=""> -->
